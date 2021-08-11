@@ -58,7 +58,7 @@ function mostrar() {
     } else if (tipo == "rompecabezas") {
       cont_rompecabezas++;
     } else {
-      cont_pelota
+      cont_pelota++;
     }
 
     //a
@@ -70,7 +70,7 @@ function mostrar() {
       masVendido = "pelota";
     }
 
-    //b //c
+    //b 
     if (origen == "importado") {
       acu_importado += precio;
       cont_importado++;
@@ -91,23 +91,26 @@ function mostrar() {
   document.write("El tipo de juguete mas vendido es: " + masVendido + "<br>");
 
   //b
-  prom_precio_importados = acu_importado / cont_importado;
-  if (cont_importado != 0) {
-    document.write("El promedio de precio de los juguetes importados es de: $" + prom_precio_importados + "<br>");
+  
+  if (cont_importado != 0) { 
+    prom_precio_importados = acu_importado / cont_importado;
   }
+  document.write("El promedio de precio de los juguetes importados es de: $" + prom_precio_importados + "<br>");
 
   //c
   recaudacion_total = acu_importado + acu_nacional;
   document.write("La recaudacion total es de $" + recaudacion_total + "<br>");
 
   //d
-
-  document.write("El precio del rompecabezas nacional mas barato es de $" + precioRompeMasBarato + "<br>");
-
+  if (flagRompeMasBarato) {
+    document.write("No se registro compra de rompecabezas de origen nacional" + "<br>");
+  } else {
+    document.write("El precio del rompecabezas nacional mas barato es de $" + precioRompeMasBarato + "<br>");
+  }
   //e
 
-  iva = recaudacion_total * 21 / 100;
-  document.write("Se percibio de iva en total: " + iva + "<br>");
+  iva = recaudacion_total * 0.21;
+  document.write("Se percibio de iva en total: $" + iva +"<br>");
 
 
 
